@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS users (
     email VARCHAR(150) UNIQUE,
     role VARCHAR(50) NOT NULL CHECK (role IN ('citizen', 'worker', 'admin')),
     phone VARCHAR(50),
+    password_hash TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -55,3 +56,4 @@ CREATE TABLE IF NOT EXISTS ticket_history (
 );
 
 CREATE INDEX IF NOT EXISTS idx_ticket_history_ticket_id ON ticket_history(ticket_id);
+
