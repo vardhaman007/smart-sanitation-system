@@ -30,9 +30,11 @@ try {
   await pool.query(schemaSql);
   console.log('Schema created successfully.');
 
-  await pool.query(
-    'ALTER TABLE users ADD COLUMN IF NOT EXISTS password_hash TEXT'
-  );
+  await pool.query('ALTER TABLE users ADD COLUMN IF NOT EXISTS password_hash TEXT');
+
+  await pool.query('ALTER TABLE tickets ADD COLUMN IF NOT EXISTS ai_reason TEXT');
+  await pool.query('ALTER TABLE tickets ADD COLUMN IF NOT EXISTS ai_recommended_action TEXT');
+  await pool.query('ALTER TABLE tickets ADD COLUMN IF NOT EXISTS ai_score INTEGER');
 
   const seedSql = fs.readFileSync(
     path.join(__dirname, 'seed.sql'),
@@ -57,3 +59,4 @@ try {
 } finally {
   await pool.end();
 }
+
