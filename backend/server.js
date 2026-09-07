@@ -23,7 +23,7 @@ const PORT = process.env.PORT || 5000;
 
 // CORS configuration (allow Vite dev servers)
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:5173', 'http://127.0.0.1:3000', 'http://127.0.0.1:5173', 'https://edmonton-footage-indicators-wheels.trycloudflare.com'],
+  origin: ['http://localhost:3000', 'http://localhost:5173', 'http://127.0.0.1:3000', 'http://127.0.0.1:5173', 'https://edmonton-footage-indicators-wheels.trycloudflare.com', 'https://smart-sanitation-system.vercel.app'],
   credentials: true
 }));
 
